@@ -6,16 +6,24 @@ export class PostController {
   static async postProduct(req, res) {
     const { body } = req;
 
+    const newProduct = new ProductModel({
+      name: body.name,
+      description: body.description,
+      imageUrl: body.imageUrl,
+      category: body.category,
+      price: body.price,
+      stock: body.stock,
+    });
+
     try {
-      const product = new ProductModel(body);
-      await product.save();
+      await newProduct.save();
 
       res.status(HttpCodes.CREATED).json({
-        data: product,
-        message: 'Producto creado exitosamente',
+        data: newProduct,
+        message: 'Producto guardado correctamente',
       });
     } catch (e) {
-      internalError(res, e, 'Ocurrió un error creando el producto');
+      internalError(res, e, 'Ocurrió un error al guardar el producto');
     }
   }
 }
