@@ -1,6 +1,6 @@
 import Joi from 'joi';
 
-export const post_productValidationSchema = Joi.object({
+export const post_put_productValidationSchema = Joi.object({
   name: Joi.string().trim().min(3).max(25).required().messages({
     'string.min': "El campo 'name' debe tener como mínimo 3 caracteres",
     'string.max': "El campo 'name' debe tener como máximo 25 caracteres",
