@@ -30,7 +30,7 @@ productRouter.put(
   isAdmin,
   (req, res, next) =>
     validateBody(req, res, next, post_put_productValidationSchema),
-  Products.PostController.putProduct,
+  Products.PutController.putProduct,
 );
 
 // DELETE -------------------------
