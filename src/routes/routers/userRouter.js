@@ -24,5 +24,10 @@ userRouter.delete(
   Users.DeleteController.deleteUser,
 );
 
-// PUT
-userRouter.put('/:id', isAuthenticated, isAdmin, Users.PutController.putUser);
+// ADMIN TOGGLE
+userRouter.put(
+  '/:id/toggle-admin',
+  isAuthenticated,
+  isAdmin,
+  Users.AdminController.toggleAdminStatus,
+);

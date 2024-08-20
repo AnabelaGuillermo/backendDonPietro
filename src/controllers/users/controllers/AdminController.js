@@ -2,8 +2,8 @@ import HttpCodes from 'http-status-codes';
 import UserModel from '../../../models/userSchema.js';
 import { internalError } from '../../../helpers/helpers.js';
 
-export class PutController {
-  static async putUser(req, res) {
+export class AdminController {
+  static async toggleAdminStatus(req, res) {
     const {
       params: { id },
     } = req;
