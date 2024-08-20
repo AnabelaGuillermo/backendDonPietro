@@ -16,10 +16,18 @@ userRouter.post(
   Users.PostController.postUser,
 );
 
-// Delete
+// DELETE
 userRouter.delete(
   '/:id',
   isAuthenticated,
   isAdmin,
   Users.DeleteController.deleteUser,
+);
+
+// ADMIN TOGGLE
+userRouter.put(
+  '/:id/toggle-admin',
+  isAuthenticated,
+  isAdmin,
+  Users.AdminController.toggleAdminStatus,
 );
