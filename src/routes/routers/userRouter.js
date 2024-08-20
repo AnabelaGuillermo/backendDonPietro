@@ -15,3 +15,19 @@ userRouter.post(
   (req, res, next) => validateBody(req, res, next, post_userValidationSchema),
   Users.PostController.postUser,
 );
+
+// DELETE
+userRouter.delete(
+  '/:id',
+  isAuthenticated,
+  isAdmin,
+  Users.DeleteController.deleteUser,
+);
+
+// ADMIN TOGGLE
+userRouter.put(
+  '/:id/toggle-admin',
+  isAuthenticated,
+  isAdmin,
+  Users.AdminController.toggleAdminStatus,
+);
