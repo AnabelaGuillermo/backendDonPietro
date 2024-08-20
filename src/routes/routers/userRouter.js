@@ -16,10 +16,13 @@ userRouter.post(
   Users.PostController.postUser,
 );
 
-// Delete
+// DELETE
 userRouter.delete(
   '/:id',
   isAuthenticated,
   isAdmin,
   Users.DeleteController.deleteUser,
 );
+
+// PUT
+userRouter.put('/:id', isAuthenticated, isAdmin, Users.PutController.putUser);
