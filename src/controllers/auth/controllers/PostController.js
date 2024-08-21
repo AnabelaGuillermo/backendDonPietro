@@ -11,10 +11,7 @@ export class PostController {
 
     try {
       const user = await UserModel.findOne({
-        $or: [
-          { username: body.usernameOrEmail },
-          { email: body.usernameOrEmail },
-        ],
+        email: body.email,
         isActive: true,
       });
 
@@ -30,7 +27,6 @@ export class PostController {
         user: {
           id: user._doc._id,
           fullname: user._doc.fullname,
-          username: user._doc.username,
           email: user._doc.email,
           isAdmin: user._doc.isAdmin,
         },

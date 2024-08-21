@@ -11,7 +11,6 @@ export class GetController {
         return {
           id: user._doc._id,
           fullname: user.fullname,
-          username: user.username,
           email: user.email,
           isAdmin: user.isAdmin,
         };

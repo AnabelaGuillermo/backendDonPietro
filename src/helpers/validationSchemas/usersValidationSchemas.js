@@ -9,12 +9,6 @@ export const post_userValidationSchema = Joi.object({
     'any.required': "El campo 'fullname' es requerido",
     '*': "Revisa el campo 'fullname'",
   }),
-  username: Joi.string().trim().min(3).max(15).required().messages({
-    'string.min': "El campo 'username' debe tener como mínimo 3 caracteres",
-    'string.max': "El campo 'username' debe tener como máximo 15 caracteres",
-    'any.required': "El campo 'username' es requerido",
-    '*': "Revisa el campo 'username'",
-  }),
   email: Joi.string().trim().email().required().messages({
     'string.email': "El campo 'email' debe ser una dirección de correo electrónico válida",
     'any.required': "El campo 'email' es requerido",

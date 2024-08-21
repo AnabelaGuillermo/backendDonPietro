@@ -9,7 +9,6 @@ export class PostController {
     const hashedPassword = bcryptjs.hashSync(body.password, 10);
     const newUser = new UserModel({
       fullname: body.fullname,
-      username: body.username,
       email: body.email,
       password: hashedPassword,
     });
