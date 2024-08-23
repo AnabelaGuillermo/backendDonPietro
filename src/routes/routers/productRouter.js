@@ -5,6 +5,7 @@ import { validateBody } from '../../middlewares/validateBody.js';
 import { isAuthenticated } from '../../middlewares/isAuthenticated.js';
 import { isAdmin } from '../../middlewares/isAdmin.js';
 import { post_put_productValidationSchema } from '../../helpers/validationSchemas/productValidationSchemas.js';
+import { isAlreadyCharged } from '../../middlewares/isAlreadyCharged.js';
 
 export const productRouter = express.Router();
 
@@ -18,6 +19,7 @@ productRouter.post(
   '/',
   isAuthenticated,
   isAdmin,
+  isAlreadyCharged,
   (req, res, next) =>
     validateBody(req, res, next, post_put_productValidationSchema),
   Products.PostController.postProduct,
