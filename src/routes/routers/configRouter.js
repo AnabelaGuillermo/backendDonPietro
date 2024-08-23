@@ -15,7 +15,7 @@ configRouter.get(
 
 // PUT
 configRouter.put(
-  'config',
+  '/config',
   isAuthenticated,
   isAdmin,
   Config.PutController.putConfig,
