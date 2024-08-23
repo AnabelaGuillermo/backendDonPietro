@@ -41,4 +41,16 @@ export const post_put_productValidationSchema = Joi.object({
     'any.required': "El campo 'ingredients' es requerido",
     '*': "Revisa el campo 'ingredients'",
   }),
+  isVegan: Joi.boolean().required().messages({
+    'any.required': "El campo 'isVegan' es requerido",
+    '*': "Revisa el campo 'isVegan'",
+  }),
+  isVegetarian: Joi.boolean().required().messages({
+    'any.required': "El campo 'isVegetarian' es requerido",
+    '*': "Revisa el campo 'isVegetarian'",
+  }),
+  isGlutenFree: Joi.boolean().required().messages({
+    'any.required': "El campo 'isGlutenFree' es requerido",
+    '*': "Revisa el campo 'isGlutenFree'",
+  }),
 });

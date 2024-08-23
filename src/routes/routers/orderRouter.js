@@ -1,9 +1,9 @@
 import express from 'express';
-import { isAuthenticated } from '../../middlewares/isAuthenticated';
-import { post_orderValidationSchema } from '../../helpers/validationSchemas/orderValidationsSchemas';
-import { Orders } from '../../controllers/orders';
-import { validateBody } from '../../middlewares/validateBody';
-import { isAdmin } from '../../middlewares/isAdmin';
+import { isAuthenticated } from '../../middlewares/isAuthenticated.js';
+import { post_orderValidationSchema } from '../../helpers/validationSchemas/orderValidationsSchemas.js';
+import { Orders } from '../../controllers/orders/index.js';
+import { validateBody } from '../../middlewares/validateBody.js';
+import { isAdmin } from '../../middlewares/isAdmin.js';
 
 export const orderRouter = express.Router();
 
