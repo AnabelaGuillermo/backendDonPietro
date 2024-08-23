@@ -64,6 +64,7 @@ export class GetController {
         isVegan: data._doc.isVegan,
         isVegetarian: data._doc.isVegetarian,
         isGlutenFree: data._doc.isGlutenFree,
+        isAvailable: data._doc.isAvailable,
       };
 
       res.json({
