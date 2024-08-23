@@ -34,4 +34,11 @@ export const post_put_productValidationSchema = Joi.object({
     'any.required': "El campo 'stock' es requerido",
     '*': "Revisa el campo 'stock'",
   }),
+  ingredients: Joi.Joi.string().trim().min(15).max(300).required().messages({
+    'string.min': "El campo 'ingredients' debe tener como mínimo 15 caracteres",
+    'string.max':
+      "El campo 'ingredients' debe tener como máximo 300 caracteres",
+    'any.required': "El campo 'ingredients' es requerido",
+    '*': "Revisa el campo 'ingredients'",
+  }),
 });
