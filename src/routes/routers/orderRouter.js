@@ -31,6 +31,14 @@ orderRouter.get(
   Orders.GetController.getPendingDOrders,
 );
 
+// DELETE
+orderRouter.delete(
+  '/:id',
+  isAuthenticated,
+  isAdmin,
+  Orders.DeleteController.deleteOrder,
+);
+
 // POST MP
 orderRouter.post(
   '/mercadopago',
