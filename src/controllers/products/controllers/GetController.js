@@ -22,6 +22,7 @@ export class GetController {
           isVegan: product._doc.isVegan,
           isVegetarian: product._doc.isVegetarian,
           isGlutenFree: product._doc.isGlutenFree,
+          isAvailable: product._doc.isAvailable,
         };
       });
 
