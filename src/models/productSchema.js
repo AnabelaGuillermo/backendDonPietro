@@ -40,7 +40,7 @@ const ProductSchema = new mongoose.Schema({
   },
   isAvailable: {
     type: Boolean,
-    default: true,
+    required: true,
   },
   isActive: {
     type: Boolean,

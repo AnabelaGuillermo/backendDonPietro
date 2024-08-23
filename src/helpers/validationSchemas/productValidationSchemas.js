@@ -47,4 +47,8 @@ export const post_put_productValidationSchema = Joi.object({
     'any.required': "El campo 'isGlutenFree' es requerido",
     '*': "Revisa el campo 'isGlutenFree'",
   }),
+  isAvailable: Joi.boolean().required().messages({
+    'any.required': "El campo 'isAvailable' es requerido",
+    '*': "Revisa el campo 'isAvailable'",
+  }),
 });
