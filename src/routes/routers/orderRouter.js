@@ -7,6 +7,30 @@ import { isAdmin } from '../../middlewares/isAdmin.js';
 
 export const orderRouter = express.Router();
 
+// GET WAITING FOR PAYMENT
+orderRouter.get(
+  '/waiting',
+  isAuthenticated,
+  isAdmin,
+  Orders.GetController.getWaitingPYOrders,
+);
+
+// GET PPREPARING ORDERS
+orderRouter.get(
+  '/preparing',
+  isAuthenticated,
+  isAdmin,
+  Orders.GetController.getPreparingOrders,
+);
+
+// GET PPREPARING ORDERS
+orderRouter.get(
+  '/pending',
+  isAuthenticated,
+  isAdmin,
+  Orders.GetController.getPendingDOrders,
+);
+
 // POST MP
 orderRouter.post(
   '/mercadopago',
@@ -22,17 +46,6 @@ orderRouter.post(
   (req, res, next) => validateBody(req, res, next, post_orderValidationSchema),
   Orders.PostController.postOrderHand,
 );
-
-// GET
-orderRouter.get(
-  '/pending',
-  isAuthenticated,
-  isAdmin,
-  Orders.GetController.getPendingOrders,
-);
-
-// GET ID
-orderRouter.get('/:id', isAuthenticated, Orders.GetController.getUserOrders);
 
 // PATCH PENDING
 orderRouter.post(

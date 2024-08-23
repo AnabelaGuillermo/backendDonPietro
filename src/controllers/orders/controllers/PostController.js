@@ -14,7 +14,7 @@ export class PostController {
         userID: id,
         products: body.products,
         comments: body.comments,
-        status: 'Pending',
+        status: 'PreparingOrder',
         paymentMethod: 'MercadoPago',
         Total: body.Total,
       });

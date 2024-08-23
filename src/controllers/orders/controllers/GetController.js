@@ -2,10 +2,10 @@ import OrderModel from '../../../models/orderSchema.js';
 import { internalError } from '../../../helpers/helpers.js';
 
 export class GetController {
-  static async getPendingOrders(_, res) {
+  static async getWaitingPYOrders(_, res) {
     try {
       const data = await OrderModel.find({
-        status: 'Pending',
+        status: 'WaitingForPayment',
       });
 
       const filteredData = data.map((order) => {
@@ -29,19 +29,53 @@ export class GetController {
     }
   }
 
-  static async getUserOrders(req, res) {
-    const {
-      params: { id },
-    } = req;
-
+  static async getPreparingOrders(_, res) {
     try {
       const data = await OrderModel.find({
-        userId: id,
-        status: 'Completed',
+        status: 'PreparingOrder',
+      });
+
+      const filteredData = data.map((order) => {
+        return {
+          id: order._doc._id,
+          userID: order._doc.userID,
+          products: order._doc.products,
+          comments: order._doc.comments,
+          status: order._doc.status,
+          paymentMethod: order._doc.paymentMethod,
+          total: order._doc.total,
+        };
       });
 
       res.json({
-        data,
+        data: filteredData,
+        message: 'Ordenes encontradas correctamente',
+      });
+    } catch (e) {
+      internalError(res, e, 'Ocurrió un error al leer la lista de ordenes');
+    }
+  }
+
+  static async getPendingDOrders(_, res) {
+    try {
+      const data = await OrderModel.find({
+        status: 'PendingDelivery',
+      });
+
+      const filteredData = data.map((order) => {
+        return {
+          id: order._doc._id,
+          userID: order._doc.userID,
+          products: order._doc.products,
+          comments: order._doc.comments,
+          status: order._doc.status,
+          paymentMethod: order._doc.paymentMethod,
+          total: order._doc.total,
+        };
+      });
+
+      res.json({
+        data: filteredData,
         message: 'Ordenes encontradas correctamente',
       });
     } catch (e) {

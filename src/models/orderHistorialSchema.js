@@ -42,4 +42,4 @@ const OrderHistorialSchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.model('OrderHistorias', OrderHistorialSchema);
+export default mongoose.model('OrderHistorial', OrderHistorialSchema);
