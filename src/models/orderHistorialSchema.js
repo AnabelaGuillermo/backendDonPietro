@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const OrderSchema = new mongoose.Schema({
+const OrderHistorialSchema = new mongoose.Schema({
   userId: {
     type: mongoose.ObjectId,
     required: true,
@@ -24,7 +24,7 @@ const OrderSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ['WaitingForPayment', 'PreparingOrder', 'PendingDelivery'],
+    enum: ['WaitingForPayment', 'Pending', 'Completed'],
     default: 'WaitingForPayment',
   },
   paymentMethod: {
@@ -42,4 +42,4 @@ const OrderSchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.model('Orders', OrderSchema);
+export default mongoose.model('OrderHistorias', OrderHistorialSchema);

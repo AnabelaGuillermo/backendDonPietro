@@ -8,11 +8,11 @@ export const post_orderValidationSchema = Joi.object({
     '*': "Revisa el campo 'comments'",
   }),
   status: Joi.string()
-    .valid('WaitingForPayment', 'Pending', 'Completed')
+    .valid('WaitingForPayment', 'PreparingOrder', 'PendingDelivery')
     .required()
     .messages({
       'any.only':
-        "El campo 'status' debe ser 'WaitingForPayment', 'Pending', 'Completed'",
+        "El campo 'status' debe ser  'WaitingForPayment', 'PreparingOrder', 'PendingDelivery'",
       'any.required': "El campo 'status' es requerido",
       '*': "Revisa el campo 'status'",
     }),
