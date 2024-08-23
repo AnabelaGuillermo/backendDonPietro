@@ -1,9 +1,8 @@
 import mongoose from 'mongoose';
 
 const OrderSchema = new mongoose.Schema({
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Users',
+  userId: {
+    type: mongoose.ObjectId,
     required: true,
   },
   products: [
@@ -19,16 +18,21 @@ const OrderSchema = new mongoose.Schema({
       },
     },
   ],
+  comments: {
+    type: String,
+    required: true,
+  },
   status: {
     type: String,
-    enum: ['Pending', 'Completed'],
-    default: 'Pending',
+    enum: ['WaitingForPayment', 'Pending', 'Completed'],
+    default: 'WaitingForPayment',
+  },
+  paymentMethod: {
+    type: String,
+    enum: ['MercadoPago', 'Caja'],
+    default: 'Caja',
   },
   createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-  updatedAt: {
     type: Date,
     default: Date.now,
   },
