@@ -3,6 +3,7 @@ import { productRouter } from './routers/productRouter.js';
 import { userRouter } from './routers/userRouter.js';
 import { authRouter } from './routers/authRouter.js';
 import { orderRouter } from './routers/orderRouter.js';
+import { orderHistorialRouter } from './routers/orderHistorialRouter.js';
 
 export const mainRouter = express.Router();
 
