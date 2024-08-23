@@ -42,10 +42,6 @@ const ProductSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
   },
-  TotalOrders: {
-    type: Number,
-    default: 0,
-  },
   isAvailable: {
     type: Boolean,
     default: true,
