@@ -56,7 +56,14 @@ orderRouter.post(
 
 // PATCH DELIVERED
 orderRouter.post(
-  '/:id/pending',
+  '/:id/delivered',
   isAuthenticated,
   Orders.StatusController.patchOrderDelivered,
+);
+
+// PATCH COMPLETED
+orderRouter.post(
+  '/:id/completed',
+  isAuthenticated,
+  Orders.StatusController.patchOrderCompleted,
 );
