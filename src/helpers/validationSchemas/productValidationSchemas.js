@@ -7,9 +7,10 @@ export const post_put_productValidationSchema = Joi.object({
     'any.required': "El campo 'name' es requerido",
     '*': "Revisa el campo 'name'",
   }),
-  description: Joi.string().trim().min(10).max(50).required().messages({
-    'string.min': "El campo 'description' debe tener como mínimo 10 caracteres",
-    'string.max': "El campo 'description' debe tener como máximo 50 caracteres",
+  description: Joi.string().trim().min(15).max(300).required().messages({
+    'string.min': "El campo 'description' debe tener como mínimo 15 caracteres",
+    'string.max':
+      "El campo 'description' debe tener como máximo 300 caracteres",
     'any.required': "El campo 'description' es requerido",
     '*': "Revisa el campo 'description'",
   }),
@@ -33,13 +34,6 @@ export const post_put_productValidationSchema = Joi.object({
       "El campo 'stock' debe ser un número entero mayor o igual a 0",
     'any.required': "El campo 'stock' es requerido",
     '*': "Revisa el campo 'stock'",
-  }),
-  ingredients: Joi.string().trim().min(15).max(300).required().messages({
-    'string.min': "El campo 'ingredients' debe tener como mínimo 15 caracteres",
-    'string.max':
-      "El campo 'ingredients' debe tener como máximo 300 caracteres",
-    'any.required': "El campo 'ingredients' es requerido",
-    '*': "Revisa el campo 'ingredients'",
   }),
   isVegan: Joi.boolean().required().messages({
     'any.required': "El campo 'isVegan' es requerido",

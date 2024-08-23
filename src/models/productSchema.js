@@ -26,10 +26,6 @@ const ProductSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  ingredients: {
-    type: String,
-    required: true,
-  },
   isVegan: {
     type: Boolean,
     required: true,
