@@ -33,3 +33,10 @@ userRouter.put(
   isAdmin,
   Users.AdminController.toggleAdminStatus,
 );
+
+// PASSWORD CHANGE
+userRouter.patch(
+  '/:id/password-change',
+  isAuthenticated,
+  Users.PasswordController.passwordChange,
+);
