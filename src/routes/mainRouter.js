@@ -10,3 +10,4 @@ mainRouter.use('/products', productRouter);
 mainRouter.use('/users', userRouter);
 mainRouter.use('/auth', authRouter);
 mainRouter.use('/order', orderRouter);
+mainRouter.use('/orderhistorial', orderHistorialRouter);
