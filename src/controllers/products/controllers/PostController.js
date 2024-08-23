@@ -13,6 +13,10 @@ export class PostController {
       category: body.category,
       price: body.price,
       stock: body.stock,
+      isVegetarian: body.isVegetarian,
+      isVegan: body.isVegan,
+      isGlutenFree: body.isGlutenFree,
+      isAvailable: body.isAvailable,
     });
 
     try {

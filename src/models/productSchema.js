@@ -26,6 +26,22 @@ const ProductSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  isVegan: {
+    type: Boolean,
+    required: true,
+  },
+  isVegetarian: {
+    type: Boolean,
+    required: true,
+  },
+  isGlutenFree: {
+    type: Boolean,
+    required: true,
+  },
+  isAvailable: {
+    type: Boolean,
+    required: true,
+  },
   isActive: {
     type: Boolean,
     default: true,

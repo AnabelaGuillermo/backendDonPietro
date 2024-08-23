@@ -18,6 +18,11 @@ export class GetController {
           category: product._doc.category,
           price: product._doc.price,
           stock: product._doc.stock,
+          ingredients: product._doc.ingredients,
+          isVegan: product._doc.isVegan,
+          isVegetarian: product._doc.isVegetarian,
+          isGlutenFree: product._doc.isGlutenFree,
+          isAvailable: product._doc.isAvailable,
         };
       });
 
@@ -56,6 +61,11 @@ export class GetController {
         category: data._doc.category,
         price: data._doc.price,
         stock: data._doc.stock,
+        ingredients: data._doc.ingredients,
+        isVegan: data._doc.isVegan,
+        isVegetarian: data._doc.isVegetarian,
+        isGlutenFree: data._doc.isGlutenFree,
+        isAvailable: data._doc.isAvailable,
       };
 
       res.json({
