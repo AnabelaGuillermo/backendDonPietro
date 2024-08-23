@@ -32,6 +32,10 @@ const OrderSchema = new mongoose.Schema({
     enum: ['MercadoPago', 'Caja'],
     default: 'Caja',
   },
+  total: {
+    type: Number,
+    required: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
