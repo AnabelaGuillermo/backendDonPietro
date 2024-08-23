@@ -56,21 +56,21 @@ orderRouter.post(
 );
 
 // PATCH PENDING
-orderRouter.post(
+orderRouter.patch(
   '/:id/pending',
   isAuthenticated,
   Orders.StatusController.patchOrderPending,
 );
 
 // PATCH DELIVERED
-orderRouter.post(
+orderRouter.patch(
   '/:id/delivered',
   isAuthenticated,
   Orders.StatusController.patchOrderDelivered,
 );
 
 // PATCH COMPLETED
-orderRouter.post(
+orderRouter.patch(
   '/:id/completed',
   isAuthenticated,
   Orders.StatusController.patchOrderCompleted,
