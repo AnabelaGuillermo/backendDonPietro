@@ -67,13 +67,9 @@ export class PostController {
     } = req;
 
     try {
-      console.log('Received order body:', body);
-
       // Verificar existencia y stock de productos
       const productChecks = body.products.map(async (product) => {
         const productInDB = await ProductModel.findById(product.product);
-
-        console.log('Product in DB:', productInDB);
 
         if (!productInDB) {
           throw new Error(`Producto con ID ${product.product} no existe`);
@@ -102,12 +98,14 @@ export class PostController {
       // Crear nueva orden
       const newOrder = new OrderModel({
         userId: id, // Asegúrate de que coincida con el modelo
+        userName: body.userName,
         products: body.products,
         comments: body.comments,
         status: 'WaitingForPayment',
         paymentMethod: 'Caja',
         total: body.total,
       });
+      console.log(newOrder);
 
       await newOrder.save();
 
