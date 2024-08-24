@@ -11,7 +11,6 @@ export class DeleteController {
 
     try {
       const order = await OrderModel.findById(id);
-
       if (!order) {
         res.status(HttpCodes.BAD_REQUEST).json({
           data: null,
@@ -20,10 +19,17 @@ export class DeleteController {
         return;
       }
 
-      const stockUpdates = order.products.map(async (product) => {
-        await ProductModel.findByIdAndUpdate(product._id, {
-          $inc: { stock: product.quantity },
-        });
+      const stockUpdates = order.products.map(async (item) => {
+        const { id: productId, quantity } = item.product;
+        if (typeof quantity === 'number' && quantity > 0) {
+          await ProductModel.findByIdAndUpdate(productId, {
+            $inc: { stock: quantity },
+          });
+        } else {
+          console.error(
+            `Cantidad inválida para el producto con ID ${productId}. Valor de quantity: ${quantity}`,
+          );
+        }
       });
 
       await Promise.all(stockUpdates);
@@ -33,7 +39,7 @@ export class DeleteController {
 
       res.json({
         data: null,
-        message: 'Orden eliminado correctamente',
+        message: 'Orden eliminada correctamente',
       });
     } catch (e) {
       internalError(res, e, 'Ocurrió un error eliminando el recurso indicado');

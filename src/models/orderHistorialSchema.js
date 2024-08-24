@@ -5,26 +5,25 @@ const OrderHistorialSchema = new mongoose.Schema({
     type: mongoose.ObjectId,
     required: true,
   },
+  userName: {
+    type: String,
+    required: true,
+  },
   products: [
     {
       product: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Object,
         ref: 'Products',
-        required: true,
-      },
-      quantity: {
-        type: Number,
         required: true,
       },
     },
   ],
   comments: {
     type: String,
-    required: true,
   },
   status: {
     type: String,
-    enum: ['WaitingForPayment', 'Pending', 'Completed'],
+    enum: ['WaitingForPayment', 'PreparingOrder', 'PendingDelivery'],
     default: 'WaitingForPayment',
   },
   paymentMethod: {

@@ -57,18 +57,18 @@ orderRouter.post(
 
 // PATCH PENDING
 orderRouter.patch(
-  '/:id/pending',
+  '/:id/preparing',
   isAuthenticated,
   isAdmin,
-  Orders.StatusController.patchOrderPending,
+  Orders.StatusController.patchOrderPreparing,
 );
 
 // PATCH DELIVERED
 orderRouter.patch(
-  '/:id/delivered',
+  '/:id/pendingdelivery',
   isAuthenticated,
   isAdmin,
-  Orders.StatusController.patchOrderDelivered,
+  Orders.StatusController.patchOrderPendingDelivery,
 );
 
 // PATCH COMPLETED

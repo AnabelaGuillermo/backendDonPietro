@@ -4,7 +4,7 @@ import { internalError } from '../../../helpers/helpers.js';
 import OrderHistorialModel from '../../../models/orderHistorialSchema.js';
 
 export class StatusController {
-  static async patchOrderPending(req, res) {
+  static async patchOrderPreparing(req, res) {
     const {
       params: { id },
     } = req;
@@ -41,7 +41,7 @@ export class StatusController {
     }
   }
 
-  static async patchOrderDelivered(req, res) {
+  static async patchOrderPendingDelivery(req, res) {
     const {
       params: { id },
     } = req;
