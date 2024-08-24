@@ -41,7 +41,7 @@ export class PostController {
       await Promise.all(stockUpdates);
 
       const newOrder = new OrderModel({
-        userID: id,
+        userId: id,
         products: body.products,
         comments: body.comments,
         status: 'PreparingOrder',
@@ -67,38 +67,41 @@ export class PostController {
     } = req;
 
     try {
+      console.log('Received order body:', body);
+
+      // Verificar existencia y stock de productos
       const productChecks = body.products.map(async (product) => {
-        const productInDB = await ProductModel.findById(product._id);
+        const productInDB = await ProductModel.findById(product.product);
+
+        console.log('Product in DB:', productInDB);
 
         if (!productInDB) {
-          throw new Error(
-            `Producto ${product.name} con ID ${product._id} no existe`,
-          );
+          throw new Error(`Producto con ID ${product.product} no existe`);
         }
 
         if (productInDB.stock < product.quantity) {
           throw new Error(
-            `Stock insuficiente para el producto ${product.name} con ID ${product._id}`,
+            `Stock insuficiente para el producto con ID ${product.product}`,
           );
         }
 
         return productInDB;
       });
 
-      // Esperar a que todas las verificaciones se completen
       await Promise.all(productChecks);
 
-      // Si hay stock suficiente, resta la cantidad pedida del stock
+      // Actualizar stock
       const stockUpdates = body.products.map((product) =>
-        ProductModel.findByIdAndUpdate(product._id, {
+        ProductModel.findByIdAndUpdate(product.product, {
           $inc: { stock: -product.quantity },
         }),
       );
 
       await Promise.all(stockUpdates);
 
+      // Crear nueva orden
       const newOrder = new OrderModel({
-        userID: id,
+        userId: id, // Asegúrate de que coincida con el modelo
         products: body.products,
         comments: body.comments,
         status: 'WaitingForPayment',
@@ -113,7 +116,7 @@ export class PostController {
         message: 'Orden de compra creada',
       });
     } catch (e) {
-      internalError(res, e, 'Ocurrio un error');
+      internalError(res, e, 'Ocurrio un error al crear la orden');
     }
   }
 }
