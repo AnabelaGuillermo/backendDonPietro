@@ -57,10 +57,18 @@ orderRouter.post(
 
 // PATCH PENDING
 orderRouter.patch(
-  '/:id/preparing',
+  '/:id/pending',
   isAuthenticated,
   isAdmin,
-  Orders.StatusController.patchOrderPreparing,
+  Orders.StatusController.patchWaitingForPayment,
+);
+
+// PATCH PREPARING
+orderRouter.patch(
+  '/:id/preparingorder',
+  isAuthenticated,
+  isAdmin,
+  Orders.StatusController.patchPreparingOrder,
 );
 
 // PATCH DELIVERED
@@ -68,13 +76,5 @@ orderRouter.patch(
   '/:id/pendingdelivery',
   isAuthenticated,
   isAdmin,
-  Orders.StatusController.patchOrderPendingDelivery,
-);
-
-// PATCH COMPLETED
-orderRouter.patch(
-  '/:id/completed',
-  isAuthenticated,
-  isAdmin,
-  Orders.StatusController.patchOrderCompleted,
+  Orders.StatusController.patchPendingDelivery,
 );
