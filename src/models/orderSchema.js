@@ -5,15 +5,15 @@ const OrderSchema = new mongoose.Schema({
     type: mongoose.ObjectId,
     required: true,
   },
+  userName: {
+    type: String,
+    required: true,
+  },
   products: [
     {
       product: {
-        type: mongoose.ObjectId,
+        type: Object,
         ref: 'Products',
-        required: true,
-      },
-      quantity: {
-        type: Number,
         required: true,
       },
     },

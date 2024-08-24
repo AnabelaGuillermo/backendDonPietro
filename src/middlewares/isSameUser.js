@@ -3,14 +3,10 @@ import ProductsModel from '../models/productSchema.js';
 import { internalError } from '../helpers/helpers.js';
 
 export const isAlreadyCharged = async (req, res, next) => {
-  const { name } = req.body;
+  const { nombre } = req.body;
 
   try {
-    const product = await ProductsModel.findOne({
-      name,
-      isActive: true,
-    });
-    console.log(product);
+    const product = await ProductsModel.findOne({ nombre });
 
     if (product) {
       res.status(HttpCodes.CONFLICT).json({
