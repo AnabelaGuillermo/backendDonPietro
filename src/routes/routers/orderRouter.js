@@ -59,6 +59,7 @@ orderRouter.post(
 orderRouter.patch(
   '/:id/pending',
   isAuthenticated,
+  isAdmin,
   Orders.StatusController.patchOrderPending,
 );
 
@@ -66,6 +67,7 @@ orderRouter.patch(
 orderRouter.patch(
   '/:id/delivered',
   isAuthenticated,
+  isAdmin,
   Orders.StatusController.patchOrderDelivered,
 );
 
@@ -73,5 +75,6 @@ orderRouter.patch(
 orderRouter.patch(
   '/:id/completed',
   isAuthenticated,
+  isAdmin,
   Orders.StatusController.patchOrderCompleted,
 );
