@@ -84,22 +84,26 @@ export class StatusController {
     } = req;
 
     try {
-      const order = await OrderModel.updateOne({
-        _id: id,
-        status: 'PendingDelivery',
-      });
+      // Encuentra y actualiza la orden en un solo paso
+      const order = await OrderModel.findOneAndUpdate(
+        { _id: id, status: 'PendingDelivery' },
+        {}, // No hay campos que actualizar, solo estamos usando este método para obtener la orden
+        { new: true }, // Esto hace que se devuelva la orden actualizada
+      );
 
       if (!order) {
         res.status(HttpCodes.BAD_REQUEST).json({
           data: null,
-          message: 'La orden indicada no fue encontrado',
+          message: 'La orden indicada no fue encontrada',
         });
         return;
       }
 
+      // Crea una copia de la orden para el historial
       const orderHistorial = new OrderHistorialModel(order.toObject());
       await orderHistorial.save();
 
+      // Elimina la orden original
       await OrderModel.deleteOne({ _id: id });
 
       res.json({
