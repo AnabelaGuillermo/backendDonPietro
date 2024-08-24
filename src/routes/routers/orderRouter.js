@@ -49,7 +49,7 @@ orderRouter.post(
 
 // POST HAND
 orderRouter.post(
-  '/mercadopago',
+  '/hand',
   isAuthenticated,
   (req, res, next) => validateBody(req, res, next, post_orderValidationSchema),
   Orders.PostController.postOrderHand,
