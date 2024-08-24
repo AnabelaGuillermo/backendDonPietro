@@ -65,19 +65,20 @@ export class PostController {
       user: { id },
       body,
     } = req;
-
     try {
       // Verificar existencia y stock de productos
-      const productChecks = body.products.map(async (product) => {
-        const productInDB = await ProductModel.findById(product.product);
+      console.log(body.products);
+      const productChecks = body.products.map(async (item) => {
+        const productInDB = await ProductModel.findById(item.product.id);
+        console.log(item.product.id);
 
         if (!productInDB) {
-          throw new Error(`Producto con ID ${product.product} no existe`);
+          throw new Error(`Producto con ID ${item.product.id} no existe`);
         }
 
-        if (productInDB.stock < product.quantity) {
+        if (productInDB.stock < item.product.quantity) {
           throw new Error(
-            `Stock insuficiente para el producto con ID ${product.product}`,
+            `Stock insuficiente para el producto con ID ${item.product.id}`,
           );
         }
 
@@ -87,9 +88,9 @@ export class PostController {
       await Promise.all(productChecks);
 
       // Actualizar stock
-      const stockUpdates = body.products.map((product) =>
-        ProductModel.findByIdAndUpdate(product.product, {
-          $inc: { stock: -product.quantity },
+      const stockUpdates = body.products.map((item) =>
+        ProductModel.findByIdAndUpdate(item.product.id, {
+          $inc: { stock: -item.product.quantity },
         }),
       );
 

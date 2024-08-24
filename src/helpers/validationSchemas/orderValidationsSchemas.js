@@ -4,12 +4,8 @@ export const post_orderValidationSchema = Joi.object({
   products: Joi.array()
     .items(
       Joi.object({
-        product: Joi.string().required().messages({
+        product: Joi.object().required().messages({
           'any.required': "El campo 'product' es requerido",
-        }),
-        quantity: Joi.number().integer().positive().required().messages({
-          'number.positive': "El campo 'quantity' debe ser un número positivo",
-          'any.required': "El campo 'quantity' es requerido",
         }),
       }),
     )
