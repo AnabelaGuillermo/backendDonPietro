@@ -103,7 +103,7 @@ export class PostController {
         comments: body.comments,
         status: 'WaitingForPayment',
         paymentMethod: 'Caja',
-        Total: body.Total,
+        total: body.total,
       });
 
       await newOrder.save();

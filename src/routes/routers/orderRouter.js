@@ -23,7 +23,7 @@ orderRouter.get(
   Orders.GetController.getPreparingOrders,
 );
 
-// GET PPREPARING ORDERS
+// GET PENDING ORDERS
 orderRouter.get(
   '/pending',
   isAuthenticated,
