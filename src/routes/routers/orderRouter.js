@@ -25,7 +25,7 @@ orderRouter.get(
 
 // GET PENDING ORDERS
 orderRouter.get(
-  '/pending',
+  '/pendingdelivery',
   isAuthenticated,
   isAdmin,
   Orders.GetController.getPendingDOrders,
