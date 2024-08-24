@@ -7,7 +7,7 @@ import { isAdmin } from '../../middlewares/isAdmin.js';
 
 export const orderRouter = express.Router();
 
-// GET WAITING FOR PAYMENT
+// GET WAITING PAYMENT
 orderRouter.get(
   '/waiting',
   isAuthenticated,
@@ -17,7 +17,7 @@ orderRouter.get(
 
 // GET PPREPARING ORDERS
 orderRouter.get(
-  '/preparing',
+  '/preparingorder',
   isAuthenticated,
   isAdmin,
   Orders.GetController.getPreparingOrders,
@@ -55,9 +55,9 @@ orderRouter.post(
   Orders.PostController.postOrderHand,
 );
 
-// PATCH PENDING
+// PATCH WAITING PAYMENT
 orderRouter.patch(
-  '/:id/pending',
+  '/:id/waiting',
   isAuthenticated,
   isAdmin,
   Orders.StatusController.patchWaitingForPayment,
