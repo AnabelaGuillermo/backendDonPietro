@@ -24,7 +24,7 @@ export const post_put_productValidationSchema = Joi.object({
     'any.required': "El campo 'category' es requerido",
     '*': "Revisa el campo 'category'",
   }),
-  price: Joi.number().positive().required().messages({
+  price: Joi.number().integer().positive().required().messages({
     'number.positive': "El campo 'price' debe ser un número positivo",
     'any.required': "El campo 'price' es requerido",
     '*': "Revisa el campo 'price'",
