@@ -1,3 +1,4 @@
+import HttpCodes from 'http-status-codes';
 import OrderHistorialModel from '../../../models/orderHistorialSchema.js';
 import { internalError } from '../../../helpers/helpers.js';
 
@@ -37,20 +38,15 @@ export class GetController {
         userId: id,
       });
 
-      const filteredData = data.map((order) => {
-        return {
-          id: order._doc._id,
-          userID: order._doc.userID,
-          products: order._doc.products,
-          comments: order._doc.comments,
-          status: order._doc.status,
-          paymentMethod: order._doc.paymentMethod,
-          total: order._doc.total,
-        };
-      });
+      if (!data) {
+        return res.status(HttpCodes.NOT_FOUND).json({
+          data: null,
+          message: 'Historial no encontrado',
+        });
+      }
 
       res.json({
-        data: filteredData,
+        data,
         message: 'Historial encontrado correctamente',
       });
     } catch (e) {
