@@ -90,6 +90,16 @@ JWT_SECRET=your_secret_key
 - **Render:** Plataforma de despliegue.
 - **Postman:** Herramienta para probar la API.
 
+  ## Endpoints
+
+**Metodo:** GET	 -> /api/users -	Obtener todos los usuarios
+
+**Metodo:** POST -> 	/api/login -	Iniciar sesión
+
+**Metodo:** PUT	 -> /api/users/:id -	Actualizar un usuario
+
+**Metodo:** DELETE -> /api/users/:id -	Eliminar un usuario
+
 ## Dependencias Utilizadas
 
    
