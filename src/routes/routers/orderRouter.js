@@ -51,6 +51,7 @@ orderRouter.post(
 orderRouter.post(
   '/hand',
   isAuthenticated,
+  isAdmin,
   (req, res, next) => validateBody(req, res, next, post_orderValidationSchema),
   Orders.PostController.postOrderHand,
 );
