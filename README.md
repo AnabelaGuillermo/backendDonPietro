@@ -1,0 +1,133 @@
+
+
+# Don Pietro - Backend
+
+El backend de Don Pietro es un proyecto basado en Node.js y Express, diseñado para manejar las operaciones del lado del servidor de la aplicación. Proporciona una API RESTful que permite a comunicación entre el frontend y el backend, asegurando una integración fluida de datos.
+
+
+## Integrantes
+
+- [Anabela Guillermo](https://github.com/AnabelaGuillermo)
+- [Benjamin Gimenez](https://github.com/BenjaminGimenez)
+- [Ignacio Sal Paz](https://github.com/nachosalpaz)
+- [Santiago Puertas](https://github.com/SantiagoPuertas4)
+
+
+## Instalacion del proyecto 
+
+### Requisitos previos
+
+  1. **Node.js:**
+
+  - Versión mínima: v16.13.0 o superior.
+  - Puedes descargar Node.js desde nodejs.org.
+
+  2. **npm (Node Package Manager):** 
+   - Se incluye con Node.js. Verifica que tienes la versión mínima v8.1.0 o superior.
+   - Puedes comprobar tu versión instalada con:
+
+     npm -v
+
+  3. **Postman:**
+
+  - Herramienta para probar y documentar las API. Puedes descargar Postman desde postman.com.
+
+ 4. **MongoDB:**
+
+  - Versión mínima: v4.4 o superior.
+  - Necesitarás tener un servidor MongoDB en funcionamiento, ya sea localmente o a través de un servicio en la nube como MongoDB Atlas.
+  
+  5. **Render Account:**
+
+  - Una cuenta en Render para desplegar el backend. Puedes registrarte en Render.com.
+
+  6. **Git:**
+
+  - Para clonar el repositorio y manejar el control de versiones. Puedes descargar Git desde git-scm.com.
+  - Verifica que tienes la versión mínima v2.28.0 o superior.
+
+
+### Pasos para la instalacion
+
+- clonar el repositorio:
+
+  https://github.com/AnabelaGuillermo/backendDonPietro.git
+
+ - Navegar al directorio del proyecto.
+
+ - Instalar las dependencias:
+
+   npm install
+
+- Crear un archivo .env en la raíz del proyecto con las siguientes variables:
+
+PORT=3000
+
+DB_URI=your_database_uri
+
+JWT_SECRET=your_secret_key
+
+## Uso
+
+### Ejecucion en Desarrollo
+
+- Para iniciar el servidor en modo de desarrollo:
+
+  npm run dev
+
+- La aplicación estará disponible en http://localhost:3000.
+
+
+  
+   
+    
+## Arquitectura del Proyecto
+
+- **Node.js:** Entorno de ejecución para JavaScript en el servidor.
+- **Express:** Framework web para construir la API.
+- **JWT:**  Manejo de autenticación y autorización.
+- **Mongoose:** Para la modelación de datos.
+- **Render:** Plataforma de despliegue.
+- **Postman:** Herramienta para probar la API.
+
+## Dependencias Utilizadas
+
+   
+"bcryptjs": "^2.4.3"
+
+  "cors": "^2.8.5"
+
+  "express": "^4.19.2"
+
+  "http-status-codes": "^2.3.0"
+
+  "joi": "^17.13.3"
+
+  "jsonwebtoken": "^9.0.2"
+
+  "mongoose": "^8.5.2"
+  
+  "morgan": "^1.10.0"
+
+
+
+
+## Contribución
+
+  Para contribuir al proyecto:
+
+- Contactarse con algun autor.
+- Crear un fork del repositorio.
+- Crear una nueva rama (git checkout -b feature/nueva-funcionalidad).
+- Realizar los cambios necesarios y commit (git commit -m 'Añadir - nueva funcionalidad').
+- Hacer push a la rama (git push origin feature/nueva-funcionalidad).
+- Crear un Pull Request.
+
+
+## Agradecimientos 
+
+Nosotros, los 4 integrantes del equipo Don Pietro, queremos expresar nuestro más sincero agradecimiento por el apoyo incondicional y la guía que nos brindaron nuestros mentores durante el desarrollo de este proyecto. Su conocimiento, paciencia y dedicación fueron fundamentales para que pudiéramos superar los desafíos y alcanzar nuestros objetivos. Gracias por estar siempre ahí para nosotros y por ayudarnos a crecer tanto profesional como personalmente.
+
+Eze y Gabi ❤
+
+
