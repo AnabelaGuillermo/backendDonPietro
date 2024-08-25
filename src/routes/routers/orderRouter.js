@@ -7,7 +7,7 @@ import { isAdmin } from '../../middlewares/isAdmin.js';
 
 export const orderRouter = express.Router();
 
-// GET WAITING FOR PAYMENT
+// GET WAITING PAYMENT
 orderRouter.get(
   '/waiting',
   isAuthenticated,
@@ -17,7 +17,7 @@ orderRouter.get(
 
 // GET PPREPARING ORDERS
 orderRouter.get(
-  '/preparing',
+  '/preparingorder',
   isAuthenticated,
   isAdmin,
   Orders.GetController.getPreparingOrders,
@@ -25,7 +25,7 @@ orderRouter.get(
 
 // GET PENDING ORDERS
 orderRouter.get(
-  '/pending',
+  '/pendingdelivery',
   isAuthenticated,
   isAdmin,
   Orders.GetController.getPendingDOrders,
@@ -55,26 +55,26 @@ orderRouter.post(
   Orders.PostController.postOrderHand,
 );
 
-// PATCH PENDING
+// PATCH WAITING PAYMENT
 orderRouter.patch(
-  '/:id/pending',
+  '/:id/waiting',
   isAuthenticated,
   isAdmin,
-  Orders.StatusController.patchOrderPending,
+  Orders.StatusController.patchWaitingForPayment,
+);
+
+// PATCH PREPARING
+orderRouter.patch(
+  '/:id/preparingorder',
+  isAuthenticated,
+  isAdmin,
+  Orders.StatusController.patchPreparingOrder,
 );
 
 // PATCH DELIVERED
 orderRouter.patch(
-  '/:id/delivered',
+  '/:id/pendingdelivery',
   isAuthenticated,
   isAdmin,
-  Orders.StatusController.patchOrderDelivered,
-);
-
-// PATCH COMPLETED
-orderRouter.patch(
-  '/:id/completed',
-  isAuthenticated,
-  isAdmin,
-  Orders.StatusController.patchOrderCompleted,
+  Orders.StatusController.patchPendingDelivery,
 );

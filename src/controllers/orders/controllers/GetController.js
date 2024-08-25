@@ -40,6 +40,7 @@ export class GetController {
         return {
           id: order._doc._id,
           userID: order._doc.userID,
+          userName: order._doc.userName,
           products: order._doc.products,
           comments: order._doc.comments,
           status: order._doc.status,
@@ -67,6 +68,7 @@ export class GetController {
         return {
           id: order._doc._id,
           userID: order._doc.userID,
+          userName: order._doc.userName,
           products: order._doc.products,
           comments: order._doc.comments,
           status: order._doc.status,
