@@ -34,8 +34,20 @@ export class GetController {
         params: { id },
       } = req;
 
-      const data = await OrderHistorialModel.findOne({
+      const data = await OrderHistorialModel.find({
         userId: id,
+      });
+
+      const filteredData = data.map((order) => {
+        return {
+          id: order._doc._id,
+          userID: order._doc.userID,
+          products: order._doc.products,
+          comments: order._doc.comments,
+          status: order._doc.status,
+          paymentMethod: order._doc.paymentMethod,
+          total: order._doc.total,
+        };
       });
 
       if (!data) {
@@ -46,7 +58,7 @@ export class GetController {
       }
 
       res.json({
-        data,
+        data: filteredData,
         message: 'Historial encontrado correctamente',
       });
     } catch (e) {

@@ -23,7 +23,7 @@ const OrderHistorialSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ['WaitingForPayment', 'PreparingOrder', 'PendingDelivery'],
+    enum: ['Completed'],
     default: 'WaitingForPayment',
   },
   paymentMethod: {

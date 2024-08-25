@@ -84,11 +84,10 @@ export class StatusController {
     } = req;
 
     try {
-      // Encuentra y actualiza la orden en un solo paso
       const order = await OrderModel.findOneAndUpdate(
         { _id: id, status: 'PendingDelivery' },
-        {}, // No hay campos que actualizar, solo estamos usando este método para obtener la orden
-        { new: true }, // Esto hace que se devuelva la orden actualizada
+        {},
+        { new: true },
       );
 
       if (!order) {
@@ -98,6 +97,8 @@ export class StatusController {
         });
         return;
       }
+
+      order.status = 'Completed';
 
       // Crea una copia de la orden para el historial
       const orderHistorial = new OrderHistorialModel(order.toObject());
