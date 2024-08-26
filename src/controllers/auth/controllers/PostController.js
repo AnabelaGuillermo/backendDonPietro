@@ -33,7 +33,7 @@ export class PostController {
       };
 
       const token = jwt.sign(userInfo, process.env.SECRET_KEY, {
-        expiresIn: '1h',
+        expiresIn: '8h',
       });
 
       res.json({
