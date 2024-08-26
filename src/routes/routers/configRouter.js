@@ -6,7 +6,7 @@ import { Config } from '../../controllers/config/index.js';
 export const configRouter = express.Router();
 
 // GET
-configRouter.get('/', isAuthenticated, isAdmin, Config.GetController.getConfig);
+configRouter.get('/', Config.GetController.getConfig);
 
 // PUT
 configRouter.put('/', isAuthenticated, isAdmin, Config.PutController.putConfig);
