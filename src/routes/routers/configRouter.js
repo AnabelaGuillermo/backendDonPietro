@@ -1,22 +1,12 @@
 import express from 'express';
-import { isAuthenticated } from '../../middlewares/isAuthenticated';
-import { isAdmin } from '../../middlewares/isAdmin';
-import { Config } from '../../controllers/config';
+import { isAuthenticated } from '../../middlewares/isAuthenticated.js';
+import { isAdmin } from '../../middlewares/isAdmin.js';
+import { Config } from '../../controllers/config/index.js';
 
 export const configRouter = express.Router();
 
 // GET
-configRouter.get(
-  '/config',
-  isAuthenticated,
-  isAdmin,
-  Config.GetController.getConfig,
-);
+configRouter.get('/', Config.GetController.getConfig);
 
 // PUT
-configRouter.put(
-  '/config',
-  isAuthenticated,
-  isAdmin,
-  Config.PutController.putConfig,
-);
+configRouter.put('/', isAuthenticated, isAdmin, Config.PutController.putConfig);

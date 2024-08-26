@@ -1,13 +1,10 @@
 import mongoose from 'mongoose';
 
 const ConfigSchema = new mongoose.Schema({
-  configurations: [
-    {
-      type: String,
-      value: mongoose.Schema.Types.Mixed,
-      // mongoose.Schema.Types.Mixed Acepta String, number y array
-    },
-  ],
+  cantidadMesas: {
+    type: Number, // Define que cantidadMesas es un número
+    required: true, // Especifica que este campo es obligatorio
+  },
 });
 
 export default mongoose.model('Config', ConfigSchema);

@@ -18,6 +18,7 @@ export class GetController {
           status: order._doc.status,
           paymentMethod: order._doc.paymentMethod,
           total: order._doc.total,
+          table: order._doc.table,
         };
       });
 
@@ -46,6 +47,7 @@ export class GetController {
           status: order._doc.status,
           paymentMethod: order._doc.paymentMethod,
           total: order._doc.total,
+          table: order._doc.table,
         };
       });
 
@@ -74,6 +76,7 @@ export class GetController {
           status: order._doc.status,
           paymentMethod: order._doc.paymentMethod,
           total: order._doc.total,
+          table: order._doc.table,
         };
       });
 
