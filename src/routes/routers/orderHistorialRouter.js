@@ -5,7 +5,6 @@ import { OrdersHistorial } from '../../controllers/ordersHistorial/index.js';
 
 export const orderHistorialRouter = express.Router();
 
-// GET HISTORIAL
 orderHistorialRouter.get(
   '/',
   isAuthenticated,
@@ -13,7 +12,6 @@ orderHistorialRouter.get(
   OrdersHistorial.GetController.getOrdersHistorial,
 );
 
-// GET ID HISTORIAL
 orderHistorialRouter.get(
   '/:id',
   isAuthenticated,

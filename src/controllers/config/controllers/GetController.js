@@ -4,7 +4,6 @@ import ConfigModel from '../../../models/configSchema.js';
 export class GetController {
   static async getConfig(req, res) {
     try {
-      // Suponiendo que estás buscando la configuración única en la colección
       const config = await ConfigModel.findOne({});
 
       if (config) {

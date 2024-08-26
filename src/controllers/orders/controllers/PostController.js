@@ -31,7 +31,6 @@ export class PostController {
 
       await Promise.all(productChecks);
 
-      // Si hay stock suficiente, resta la cantidad pedida del stock
       const stockUpdates = body.products.map((product) =>
         ProductModel.findByIdAndUpdate(product._id, {
           $inc: { stock: -product.quantity },
@@ -66,11 +65,8 @@ export class PostController {
       body,
     } = req;
     try {
-      // Verificar existencia y stock de productos
-      console.log(body.products);
       const productChecks = body.products.map(async (item) => {
         const productInDB = await ProductModel.findById(item.product.id);
-        console.log(item.product.id);
 
         if (!productInDB) {
           throw new Error(`Producto con ID ${item.product.id} no existe`);
@@ -87,7 +83,6 @@ export class PostController {
 
       await Promise.all(productChecks);
 
-      // Actualizar stock
       const stockUpdates = body.products.map((item) =>
         ProductModel.findByIdAndUpdate(item.product.id, {
           $inc: { stock: -item.product.quantity },
@@ -96,9 +91,8 @@ export class PostController {
 
       await Promise.all(stockUpdates);
 
-      // Crear nueva orden
       const newOrder = new OrderModel({
-        userId: id, // Asegúrate de que coincida con el modelo
+        userId: id,
         userName: body.userName,
         products: body.products,
         comments: body.comments,
@@ -107,7 +101,6 @@ export class PostController {
         total: body.total,
         table: body.table,
       });
-      console.log(newOrder);
 
       await newOrder.save();
 

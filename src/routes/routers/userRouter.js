@@ -7,10 +7,9 @@ import { post_userValidationSchema } from '../../helpers/validationSchemas/users
 import { isAlreadyRegistered } from '../../middlewares/isAlreadyRegistered.js';
 
 export const userRouter = express.Router();
-// GET ----------------------------
+
 userRouter.get('/', isAuthenticated, isAdmin, Users.GetController.getUsers);
-// POST ----------------------------
-// /api/v1/users/
+
 userRouter.post(
   '/',
   isAlreadyRegistered,
@@ -18,7 +17,6 @@ userRouter.post(
   Users.PostController.postUser,
 );
 
-// DELETE
 userRouter.delete(
   '/:id',
   isAuthenticated,
@@ -26,7 +24,6 @@ userRouter.delete(
   Users.DeleteController.deleteUser,
 );
 
-// ADMIN TOGGLE
 userRouter.put(
   '/:id/toggle-admin',
   isAuthenticated,
@@ -34,7 +31,6 @@ userRouter.put(
   Users.AdminController.toggleAdminStatus,
 );
 
-// PASSWORD CHANGE
 userRouter.patch(
   '/:id/password-change',
   isAuthenticated,

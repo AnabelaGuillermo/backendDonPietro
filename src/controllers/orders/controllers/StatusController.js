@@ -100,11 +100,8 @@ export class StatusController {
 
       order.status = 'Completed';
 
-      // Crea una copia de la orden para el historial
       const orderHistorial = new OrderHistorialModel(order.toObject());
       await orderHistorial.save();
-
-      // Elimina la orden original
       await OrderModel.deleteOne({ _id: id });
 
       res.json({
