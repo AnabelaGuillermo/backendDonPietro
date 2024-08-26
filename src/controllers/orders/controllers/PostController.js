@@ -105,7 +105,7 @@ export class PostController {
         status: 'WaitingForPayment',
         paymentMethod: 'Caja',
         total: body.total,
-        mesa: body.mesa,
+        table: body.table,
       });
       console.log(newOrder);
 

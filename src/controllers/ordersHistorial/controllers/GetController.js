@@ -18,6 +18,7 @@ export class GetController {
           paymentMethod: order._doc.paymentMethod,
           total: order._doc.total,
           createdAt: order._doc.createdAt,
+          table: order._doc.table,
         };
       });
 
@@ -51,6 +52,7 @@ export class GetController {
           paymentMethod: order._doc.paymentMethod,
           total: order._doc.total,
           createdAt: order._doc.createdAt,
+          table: order._doc.table,
         };
       });
 

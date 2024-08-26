@@ -29,9 +29,9 @@ export const post_orderValidationSchema = Joi.object({
     'any.required': "El campo 'total' es requerido",
     '*': "Revisa el campo 'total'",
   }),
-  mesa: Joi.number().positive().required().messages({
-    'number.positive': "El campo 'total' debe ser un número positivo",
-    'any.required': "El campo 'total' es requerido",
-    '*': "Revisa el campo 'total'",
+  table: Joi.number().positive().required().messages({
+    'number.positive': "El campo 'mesa' debe ser un número positivo",
+    'any.required': "El campo 'mesa' es requerido",
+    '*': "Revisa el campo 'mesa'",
   }),
 });

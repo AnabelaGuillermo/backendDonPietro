@@ -40,7 +40,7 @@ const OrderSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  mesa: {
+  table: {
     type: Number,
     required: true,
   },
