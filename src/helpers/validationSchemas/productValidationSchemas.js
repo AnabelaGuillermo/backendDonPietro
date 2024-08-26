@@ -7,10 +7,9 @@ export const post_put_productValidationSchema = Joi.object({
     'any.required': "El campo 'name' es requerido",
     '*': "Revisa el campo 'name'",
   }),
-  description: Joi.string().trim().min(15).max(300).required().messages({
+  description: Joi.string().trim().min(15).max(50).required().messages({
     'string.min': "El campo 'description' debe tener como mínimo 15 caracteres",
-    'string.max':
-      "El campo 'description' debe tener como máximo 300 caracteres",
+    'string.max': "El campo 'description' debe tener como máximo 50 caracteres",
     'any.required': "El campo 'description' es requerido",
     '*': "Revisa el campo 'description'",
   }),
