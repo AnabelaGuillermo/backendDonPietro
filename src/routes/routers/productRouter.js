@@ -9,12 +9,9 @@ import { isAlreadyCharged } from '../../middlewares/isAlreadyCharged.js';
 
 export const productRouter = express.Router();
 
-// GET ----------------------------
 productRouter.get('/', Products.GetController.getProducts);
 productRouter.get('/:id', Products.GetController.getProduct);
 
-// POST ----------------------------
-// /api/v1/products/
 productRouter.post(
   '/',
   isAuthenticated,
@@ -25,7 +22,6 @@ productRouter.post(
   Products.PostController.postProduct,
 );
 
-// PUT ----------------------------
 productRouter.put(
   '/:id',
   isAuthenticated,
@@ -35,7 +31,6 @@ productRouter.put(
   Products.PutController.putProduct,
 );
 
-// DELETE -------------------------
 productRouter.delete(
   '/:id',
   isAuthenticated,

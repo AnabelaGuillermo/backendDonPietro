@@ -10,7 +10,6 @@ export const isAlreadyCharged = async (req, res, next) => {
       name,
       isActive: true,
     });
-    console.log(product);
 
     if (product) {
       res.status(HttpCodes.CONFLICT).json({

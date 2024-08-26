@@ -34,7 +34,6 @@ export class DeleteController {
 
       await Promise.all(stockUpdates);
 
-      // Eliminar la orden
       await OrderModel.deleteOne({ _id: id });
 
       res.json({

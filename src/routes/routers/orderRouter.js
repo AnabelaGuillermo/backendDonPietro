@@ -7,7 +7,6 @@ import { isAdmin } from '../../middlewares/isAdmin.js';
 
 export const orderRouter = express.Router();
 
-// GET WAITING PAYMENT
 orderRouter.get(
   '/waiting',
   isAuthenticated,
@@ -15,7 +14,6 @@ orderRouter.get(
   Orders.GetController.getWaitingPYOrders,
 );
 
-// GET PPREPARING ORDERS
 orderRouter.get(
   '/preparingorder',
   isAuthenticated,
@@ -23,7 +21,6 @@ orderRouter.get(
   Orders.GetController.getPreparingOrders,
 );
 
-// GET PENDING ORDERS
 orderRouter.get(
   '/pendingdelivery',
   isAuthenticated,
@@ -31,7 +28,6 @@ orderRouter.get(
   Orders.GetController.getPendingDOrders,
 );
 
-// DELETE
 orderRouter.delete(
   '/:id',
   isAuthenticated,
@@ -39,7 +35,6 @@ orderRouter.delete(
   Orders.DeleteController.deleteOrder,
 );
 
-// POST MP
 orderRouter.post(
   '/mercadopago',
   isAuthenticated,
@@ -47,7 +42,6 @@ orderRouter.post(
   Orders.PostController.postOrderMP,
 );
 
-// POST HAND
 orderRouter.post(
   '/hand',
   isAuthenticated,
@@ -55,7 +49,6 @@ orderRouter.post(
   Orders.PostController.postOrderHand,
 );
 
-// PATCH WAITING PAYMENT
 orderRouter.patch(
   '/:id/waiting',
   isAuthenticated,
@@ -63,7 +56,6 @@ orderRouter.patch(
   Orders.StatusController.patchWaitingForPayment,
 );
 
-// PATCH PREPARING
 orderRouter.patch(
   '/:id/preparingorder',
   isAuthenticated,
@@ -71,7 +63,6 @@ orderRouter.patch(
   Orders.StatusController.patchPreparingOrder,
 );
 
-// PATCH DELIVERED
 orderRouter.patch(
   '/:id/pendingdelivery',
   isAuthenticated,

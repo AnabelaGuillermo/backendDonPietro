@@ -13,7 +13,7 @@ export class PutController {
       const action = await ProductModel.updateOne(
         {
           _id: id,
-          isActive: true, // Solo actualizamos productos activos
+          isActive: true,
         },
         body,
       );
