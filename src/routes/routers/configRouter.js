@@ -10,7 +10,7 @@ import { configValidationSchema } from '../../helpers/validationSchemas/configVa
 
 export const configRouter = express.Router();
 
-configRouter.get('/', Config.GetController.getConfig);
+configRouter.get('/', isAuthenticated, Config.GetController.getConfig);
 
 configRouter.put(
   '/',

@@ -11,8 +11,8 @@ import { post_put_productValidationSchema } from '../../helpers/validationSchema
 
 export const productRouter = express.Router();
 
-productRouter.get('/', Products.GetController.getProducts);
-productRouter.get('/:id', Products.GetController.getProduct);
+productRouter.get('/', isAuthenticated, Products.GetController.getProducts);
+productRouter.get('/:id', isAuthenticated, Products.GetController.getProduct);
 
 productRouter.post(
   '/',
