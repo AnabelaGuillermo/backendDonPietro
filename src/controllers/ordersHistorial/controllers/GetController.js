@@ -1,6 +1,8 @@
 import HttpCodes from 'http-status-codes';
-import OrderHistorialModel from '../../../models/orderHistorialSchema.js';
+
 import { internalError } from '../../../helpers/helpers.js';
+
+import OrderHistorialModel from '../../../models/orderHistorialSchema.js';
 
 export class GetController {
   static async getOrdersHistorial(_, res) {

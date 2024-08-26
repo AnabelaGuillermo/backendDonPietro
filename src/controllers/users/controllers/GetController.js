@@ -1,4 +1,5 @@
 import UsersModel from '../../../models/userSchema.js';
+
 import { internalError } from '../../../helpers/helpers.js';
 
 export class GetController {

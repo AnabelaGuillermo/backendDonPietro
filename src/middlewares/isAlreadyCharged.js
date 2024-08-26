@@ -1,6 +1,8 @@
 import HttpCodes from 'http-status-codes';
-import ProductsModel from '../models/productSchema.js';
+
 import { internalError } from '../helpers/helpers.js';
+
+import ProductsModel from '../models/productSchema.js';
 
 export const isAlreadyCharged = async (req, res, next) => {
   const { name } = req.body;

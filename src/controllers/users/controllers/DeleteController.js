@@ -1,6 +1,8 @@
 import HttpCodes from 'http-status-codes';
-import UserModel from '../../../models/userSchema.js';
+
 import { internalError } from '../../../helpers/helpers.js';
+
+import UserModel from '../../../models/userSchema.js';
 
 export class DeleteController {
   static async deleteUser(req, res) {
