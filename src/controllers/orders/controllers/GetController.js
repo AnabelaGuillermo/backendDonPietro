@@ -18,6 +18,7 @@ export class GetController {
           status: order._doc.status,
           paymentMethod: order._doc.paymentMethod,
           total: order._doc.total,
+          mesa: order._doc.mesa,
         };
       });
 
