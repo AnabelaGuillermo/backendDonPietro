@@ -1,6 +1,8 @@
 import HttpCodes from 'http-status-codes';
-import ProductModel from '../../../models/productSchema.js';
+
 import { internalError } from '../../../helpers/helpers.js';
+
+import ProductModel from '../../../models/productSchema.js';
 
 export class PostController {
   static async postProduct(req, res) {

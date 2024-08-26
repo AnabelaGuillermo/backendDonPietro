@@ -1,7 +1,9 @@
 import HttpCodes from 'http-status-codes';
 import bcryptjs from 'bcryptjs';
-import UserModel from '../../../models/userSchema.js';
+
 import { internalError } from '../../../helpers/helpers.js';
+
+import UserModel from '../../../models/userSchema.js';
 
 export class PasswordController {
   static async passwordChange(req, res) {

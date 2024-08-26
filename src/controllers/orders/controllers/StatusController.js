@@ -1,6 +1,8 @@
 import HttpCodes from 'http-status-codes';
-import OrderModel from '../../../models/orderSchema.js';
+
 import { internalError } from '../../../helpers/helpers.js';
+
+import OrderModel from '../../../models/orderSchema.js';
 import OrderHistorialModel from '../../../models/orderHistorialSchema.js';
 
 export class StatusController {

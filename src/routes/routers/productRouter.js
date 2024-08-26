@@ -1,11 +1,13 @@
 import express from 'express';
 
 import { Products } from '../../controllers/products/index.js';
-import { validateBody } from '../../middlewares/validateBody.js';
+
 import { isAuthenticated } from '../../middlewares/isAuthenticated.js';
 import { isAdmin } from '../../middlewares/isAdmin.js';
-import { post_put_productValidationSchema } from '../../helpers/validationSchemas/productValidationSchemas.js';
+import { validateBody } from '../../middlewares/validateBody.js';
 import { isAlreadyCharged } from '../../middlewares/isAlreadyCharged.js';
+
+import { post_put_productValidationSchema } from '../../helpers/validationSchemas/productValidationSchemas.js';
 
 export const productRouter = express.Router();
 

@@ -2,8 +2,9 @@ import HttpCodes from 'http-status-codes';
 import bcryptjs from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
-import UserModel from '../../../models/userSchema.js';
 import { internalError } from '../../../helpers/helpers.js';
+
+import UserModel from '../../../models/userSchema.js';
 
 export class PostController {
   static async postLogin(req, res) {

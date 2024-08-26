@@ -1,4 +1,5 @@
 import { internalError } from '../../../helpers/helpers.js';
+
 import ConfigModel from '../../../models/configSchema.js';
 
 export class GetController {

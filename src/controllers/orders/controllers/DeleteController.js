@@ -1,7 +1,9 @@
 import HttpCodes from 'http-status-codes';
+
+import { internalError } from '../../../helpers/helpers.js';
+
 import OrderModel from '../../../models/orderSchema.js';
 import ProductModel from '../../../models/productSchema.js';
-import { internalError } from '../../../helpers/helpers.js';
 
 export class DeleteController {
   static async deleteOrder(req, res) {

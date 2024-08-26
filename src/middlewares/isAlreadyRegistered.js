@@ -1,6 +1,8 @@
 import HttpCodes from 'http-status-codes';
-import UsersModel from '../models/userSchema.js';
+
 import { internalError } from '../helpers/helpers.js';
+
+import UsersModel from '../models/userSchema.js';
 
 export const isAlreadyRegistered = async (req, res, next) => {
   const { email } = req.body;

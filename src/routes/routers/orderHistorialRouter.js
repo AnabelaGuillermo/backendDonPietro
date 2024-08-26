@@ -1,7 +1,9 @@
 import express from 'express';
+
+import { OrdersHistorial } from '../../controllers/ordersHistorial/index.js';
+
 import { isAuthenticated } from '../../middlewares/isAuthenticated.js';
 import { isAdmin } from '../../middlewares/isAdmin.js';
-import { OrdersHistorial } from '../../controllers/ordersHistorial/index.js';
 
 export const orderHistorialRouter = express.Router();
 
