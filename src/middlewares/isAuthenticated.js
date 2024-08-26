@@ -25,7 +25,7 @@ export const isAuthenticated = (req, res, next) => {
   } catch (_) {
     res.status(401).json({
       data: null,
-      message: 'El token no es válido',
+      message: 'Debes volver a iniciar sesion',
     });
   }
 };
