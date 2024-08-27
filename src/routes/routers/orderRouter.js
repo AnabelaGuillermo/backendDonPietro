@@ -31,18 +31,25 @@ orderRouter.get(
   Orders.GetController.getPendingDOrders,
 );
 
+orderRouter.get(
+  '/preparingorderTV',
+  isAuthenticated,
+  isAdmin,
+  Orders.GetController.getPreparingOrdersTV,
+);
+
+orderRouter.get(
+  '/pendingdeliveryTV',
+  isAuthenticated,
+  isAdmin,
+  Orders.GetController.getPendingDOrdersTV,
+);
+
 orderRouter.delete(
   '/:id',
   isAuthenticated,
   isAdmin,
   Orders.DeleteController.deleteOrder,
-);
-
-orderRouter.post(
-  '/mercadopago',
-  isAuthenticated,
-  (req, res, next) => validateBody(req, res, next, post_orderValidationSchema),
-  Orders.PostController.postOrderMP,
 );
 
 orderRouter.post(

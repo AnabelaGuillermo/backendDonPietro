@@ -36,46 +36,4 @@ export class GetController {
       internalError(res, e, 'Ocurrió un error al leer la lista de productos');
     }
   }
-
-  static async getProduct(req, res) {
-    const {
-      params: { id },
-    } = req;
-
-    try {
-      const data = await ProductModel.findOne({
-        isActive: true,
-        _id: id,
-      });
-
-      if (!data) {
-        return res.status(HttpCodes.NOT_FOUND).json({
-          data: null,
-          message: 'Producto no encontrado',
-        });
-      }
-
-      const formattedData = {
-        id: data._doc._id,
-        name: data._doc.name,
-        description: data._doc.description,
-        imageUrl: data._doc.imageUrl,
-        category: data._doc.category,
-        price: data._doc.price,
-        stock: data._doc.stock,
-        ingredients: data._doc.ingredients,
-        isVegan: data._doc.isVegan,
-        isVegetarian: data._doc.isVegetarian,
-        isGlutenFree: data._doc.isGlutenFree,
-        isAvailable: data._doc.isAvailable,
-      };
-
-      res.json({
-        data: formattedData,
-        message: 'Producto encontrado correctamente',
-      });
-    } catch (e) {
-      internalError(res, e, 'Ocurrió un error al leer el producto solicitado');
-    }
-  }
 }
