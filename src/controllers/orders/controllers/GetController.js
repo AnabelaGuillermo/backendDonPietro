@@ -77,7 +77,6 @@ export class GetController {
           table: order._doc.table,
         };
       });
-      console.log(filteredData);
 
       res.json({
         data: filteredData,
