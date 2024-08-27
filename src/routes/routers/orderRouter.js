@@ -53,13 +53,6 @@ orderRouter.delete(
 );
 
 orderRouter.post(
-  '/mercadopago',
-  isAuthenticated,
-  (req, res, next) => validateBody(req, res, next, post_orderValidationSchema),
-  Orders.PostController.postOrderMP,
-);
-
-orderRouter.post(
   '/hand',
   isAuthenticated,
   (req, res, next) => validateBody(req, res, next, post_orderValidationSchema),
