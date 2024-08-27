@@ -104,7 +104,6 @@ Ruta principal: `/api/v1/auth`
 | Método | Endpoint | Protegido | Debe ser Admin | Descripcion | Body |
 |--------|----------|-----------|----------------|-------------|------|
 | POST | `/login` | ❌ | ❌ | Inicia sesión con un usuario | `{user: {id: string, fullname: string, email: string, isAdmin: boolean}}` |
-|  |  |  |  |  |  |
 
 Configuracion:
 Ruta principal: `/api/v1/config`
