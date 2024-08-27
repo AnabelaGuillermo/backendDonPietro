@@ -1,5 +1,10 @@
 
 
+
+# Project Title
+
+A brief description of what this project does and who it's for
+
 # Don Pietro - Backend
 
 El backend de Don Pietro es un proyecto basado en Node.js y Express, diseñado para manejar las operaciones del lado del servidor de la aplicación. Proporciona una API RESTful que permite a comunicación entre el frontend y el backend, asegurando una integración fluida de datos.
@@ -49,7 +54,7 @@ El backend de Don Pietro es un proyecto basado en Node.js y Express, diseñado p
 
 ### Pasos para la instalacion
 
-- clonar el repositorio:
+- Clonar el repositorio:
 
   https://github.com/AnabelaGuillermo/backendDonPietro.git
 
@@ -90,15 +95,67 @@ JWT_SECRET=your_secret_key
 - **Render:** Plataforma de despliegue.
 - **Postman:** Herramienta para probar la API.
 
-## Endpoints
+## Documentacion de API
+La tabla a continuación detalla los endpoints de cada servicio disponible:
 
-**Metodo:** GET	 -> /api/users -	Obtener todos los usuarios
+Autenticacion:
+Ruta principal: `/api/v1/auth`
 
-**Metodo:** POST -> 	/api/login -	Iniciar sesión
+| Método | Endpoint | Protegido | Debe ser Admin | Descripcion | Body |
+|--------|----------|-----------|----------------|-------------|------|
+| POST | `/login` | ❌ | ❌ | Inicia sesión con un usuario | `{user: {id: string, fullname: string, email: string, isAdmin: boolean}}` |
+|  |  |  |  |  |  |
 
-**Metodo:** PUT	 -> /api/users/:id -	Actualizar un usuario
+Configuracion:
+Ruta principal: `/api/v1/config`
 
-**Metodo:** DELETE -> /api/users/:id -	Eliminar un usuario
+| Método | Endpoint | Protegido | Debe ser Admin | Descripcion | Body |
+|--------|----------|-----------|----------------|-------------|------|
+| GET | `/` | ❌ | ❌ | Obtiene la configuracion del sitio | `{config: {cantidadMesas: number}}` |
+| PUT | `/` | ✅ | ✅ | Guarda o crea la configuracion del sitio | `{config: {cantidadMesas: number}` |
+
+Historial:
+Ruta principal: `/api/v1/orderhistorial`
+
+| Método | Endpoint | Protegido | Debe ser Admin | Descripcion | Body |
+|--------|----------|-----------|----------------|-------------|------|
+| GET | `/:id` | ❌ | ✅ | Obtiene el historial de un usuario en particular | `{historial: {_id: string, userID: string, userName: string, products: array, comments: string, status: string, paymentMethod: string, total: number, createdAt: Date, table: number}` |
+
+Ordenes de compra:
+Ruta principal: `/api/v1/order`
+
+| Método | Endpoint | Protegido | Debe ser Admin | Descripcion | Body |
+|--------|----------|-----------|----------------|-------------|------|
+| GET | `/waiting` | ✅ | ✅ | Obtiene las ordenes de compra en estado "WaitingForPayment" | `{historial: {_id: string, userName: string, products: array, comments: string, status: string, paymentMethod: "WaitingForPayment", total: number, createdAt: Date}` |
+| GET | `/preparingorder` | ✅ | ✅ | Obtiene las ordenes de compra en estado "PreparingOrder" | `{historial: {_id: string, userName: string, products: array, comments: string, status: string, paymentMethod: "PreparingOrder", total: number, createdAt: Date}` |
+| GET | `/pendingdelivery` | ✅ | ✅ | Obtiene las ordenes de compra en estado "PendingDelivery" | `{historial: {_id: string, userName: string, products: array, comments: string, status: string, paymentMethod: "PendingDelivery", total: number, createdAt: Date}` |
+| GET | `/preparingordertv` | ✅ | ✅ | Obtiene las ordenes de compra en estado "PreparingOrder" para mostrar en TVPanel | `{historial: {_id: string, userID: string}` |
+| GET | `/pendingdeliverytv` | ✅ | ✅ | Obtiene las ordenes de compra en estado "PendingDelivery" para mostrar en TVPanel | `{historial: {_id: string, userID: string}` |
+| DELETE | `/:id` | ✅ | ✅ | Elimina una orden de compra por su id (borrado fisico) | - |
+| POST | `/hand` | ✅ | ❌ | Crea una orden de compra | - |
+| PATCH | `/:id/waiting` | ✅ | ✅ | Cambia el estado de una orden de "WaitingForPayment" a "PreparingOrder" | - |
+| PATCH | `/:id/preparingorder` | ✅ | ✅ | Cambia el estado de una orden de "PreparingOrder" a "PendingDelivery" | - |
+| PATCH | `/:id/pendingdelivery` | ✅ | ✅ | Cambia el estado de una orden de "PendingDelivery" a "Completed" y la mueve a orderHistorial | - |
+
+Productos:
+Ruta principal: `/api/v1/products`
+
+| Método | Endpoint | Protegido | Debe ser Admin | Controla Nombre | Descripcion | Body |
+|--------|----------|-----------|----------------|-----------------|-------------|------|
+| GET | `/` | ✅ | ❌ | ❌ | Obtiene todos los productos | - |
+| POST | `/` | ✅ | ✅ | ✅ | Carga un producto | - |
+| PUT | `/:id` | ✅ | ✅ | ❌ | Edita un producto | - |
+| DELETE | `/:id` | ✅ | ✅ | ❌ | Elimina un producto(borrado logico) | - |
+
+Usuarios:
+Ruta principal: `/api/v1/users`
+
+| Método | Endpoint | Protegido | Debe ser Admin | Ya registrado | Descripcion | Body |
+|--------|----------|-----------|----------------|---------------|-------------|------|
+| GET | `/` | ✅ | ✅ | ❌ | Obtiene todos los de usuarios | - |
+| POST | `/` | ❌ | ❌ | ✅ | Registra un usuario | - |
+| PUT | `/:id/toggle-admin` | ✅ | ✅ | ❌ | Cambia isAdmin a True | - |
+| DELETE | `/:id` | ✅ | ✅ | ❌ | Elimina un usuario(borrado logico) | - |
 
 ## Dependencias Utilizadas
 
@@ -106,6 +163,8 @@ JWT_SECRET=your_secret_key
 "bcryptjs": "^2.4.3"
 
   "cors": "^2.8.5"
+
+  "esbuild": "^0.23.1",
 
   "express": "^4.19.2"
 
