@@ -1,5 +1,3 @@
-import HttpCodes from 'http-status-codes';
-
 import { internalError } from '../../../helpers/helpers.js';
 
 import ProductModel from '../../../models/productSchema.js';
