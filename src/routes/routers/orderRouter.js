@@ -32,14 +32,14 @@ orderRouter.get(
 );
 
 orderRouter.get(
-  '/preparingorderTV',
+  '/preparingordertv',
   isAuthenticated,
   isAdmin,
   Orders.GetController.getPreparingOrdersTV,
 );
 
 orderRouter.get(
-  '/pendingdeliveryTV',
+  '/pendingdeliverytv',
   isAuthenticated,
   isAdmin,
   Orders.GetController.getPendingDOrdersTV,
