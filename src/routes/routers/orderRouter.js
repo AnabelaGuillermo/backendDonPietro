@@ -31,6 +31,20 @@ orderRouter.get(
   Orders.GetController.getPendingDOrders,
 );
 
+orderRouter.get(
+  '/preparingorderTV',
+  isAuthenticated,
+  isAdmin,
+  Orders.GetController.getPreparingOrdersTV,
+);
+
+orderRouter.get(
+  '/pendingdeliveryTV',
+  isAuthenticated,
+  isAdmin,
+  Orders.GetController.getPendingDOrdersTV,
+);
+
 orderRouter.delete(
   '/:id',
   isAuthenticated,
