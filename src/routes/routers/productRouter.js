@@ -27,6 +27,7 @@ productRouter.put(
   '/:id',
   isAuthenticated,
   isAdmin,
+  isAlreadyCharged,
   (req, res, next) =>
     validateBody(req, res, next, post_put_productValidationSchema),
   Products.PutController.putProduct,
