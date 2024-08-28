@@ -1,9 +1,3 @@
-# Project Title
-
-# Project Title
-
-A brief description of what this project does and who it's for
-
 # Don Pietro - Backend
 
 El backend de Don Pietro es un proyecto basado en Node.js y Express, diseñado para manejar las operaciones del lado del servidor de la aplicación. Proporciona una API RESTful que permite a comunicación entre el frontend y el backend, asegurando una integración fluida de datos.
@@ -155,8 +149,6 @@ Ruta principal: `/api/v1/users`
 "bcryptjs": "^2.4.3"
 
 "cors": "^2.8.5"
-
-"esbuild": "^0.23.1",
 
 "express": "^4.19.2"
 
