@@ -11,24 +11,10 @@ import { post_orderValidationSchema } from '../../helpers/validationSchemas/orde
 export const orderRouter = express.Router();
 
 orderRouter.get(
-  '/waiting',
+  '/:status',
   isAuthenticated,
   isAdmin,
-  Orders.GetController.getWaitingPYOrders,
-);
-
-orderRouter.get(
-  '/preparingorder',
-  isAuthenticated,
-  isAdmin,
-  Orders.GetController.getPreparingOrders,
-);
-
-orderRouter.get(
-  '/pendingdelivery',
-  isAuthenticated,
-  isAdmin,
-  Orders.GetController.getPendingDOrders,
+  Orders.GetController.getOrders,
 );
 
 orderRouter.get(

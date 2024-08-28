@@ -131,7 +131,7 @@ Ruta principal: `/api/v1/products`
 | ------ | -------- | --------- | -------------- | --------------- | ----------------------------------- | ---- |
 | GET    | `/`      | ✅        | ❌             | ❌              | Obtiene todos los productos         | -    |
 | POST   | `/`      | ✅        | ✅             | ✅              | Carga un producto                   | -    |
-| PUT    | `/:id`   | ✅        | ✅             | ❌              | Edita un producto                   | -    |
+| PUT    | `/:id`   | ✅        | ✅             | ✅              | Edita un producto                   | -    |
 | DELETE | `/:id`   | ✅        | ✅             | ❌              | Elimina un producto(borrado logico) | -    |
 
 Usuarios:
