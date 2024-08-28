@@ -18,17 +18,10 @@ orderRouter.get(
 );
 
 orderRouter.get(
-  '/preparingordertv',
+  '/:status',
   isAuthenticated,
   isAdmin,
   Orders.GetController.getPreparingOrdersTV,
-);
-
-orderRouter.get(
-  '/pendingdeliverytv',
-  isAuthenticated,
-  isAdmin,
-  Orders.GetController.getPendingDOrdersTV,
 );
 
 orderRouter.delete(

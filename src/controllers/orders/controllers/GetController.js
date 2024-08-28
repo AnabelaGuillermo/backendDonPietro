@@ -35,6 +35,32 @@ export class GetController {
     }
   }
 
+  static async getOrdersTV(req, res) {
+    try {
+      const {
+        params: { status },
+      } = req;
+
+      const data = await OrderModel.find({
+        status,
+      });
+
+      const filteredData = data.map((order) => {
+        return {
+          id: order._doc._id,
+          userName: order._doc.userName,
+        };
+      });
+
+      res.json({
+        data: filteredData,
+        message: `Ordenes con status "${status}" encontradas correctamente`,
+      });
+    } catch (e) {
+      internalError(res, e, 'Ocurrió un error al leer la lista de ordenes');
+    }
+  }
+
   static async getPreparingOrdersTV(_, res) {
     try {
       const data = await OrderModel.find({
