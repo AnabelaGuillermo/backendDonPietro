@@ -17,7 +17,6 @@ export class GetController {
           superAdmin: user.superAdmin,
         };
       });
-      console.log(filteredData);
       res.json({
         data: filteredData,
         message: 'Usuarios encontrados correctamente',
