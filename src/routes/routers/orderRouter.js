@@ -18,7 +18,7 @@ orderRouter.get(
 );
 
 orderRouter.get(
-  '/:status',
+  '/tv/:status',
   isAuthenticated,
   isAdmin,
   Orders.GetController.getOrdersTV,
@@ -39,22 +39,8 @@ orderRouter.post(
 );
 
 orderRouter.patch(
-  '/:id/waiting',
+  '/:id/:status/:newStatus',
   isAuthenticated,
   isAdmin,
-  Orders.StatusController.patchWaitingForPayment,
-);
-
-orderRouter.patch(
-  '/:id/preparingorder',
-  isAuthenticated,
-  isAdmin,
-  Orders.StatusController.patchPreparingOrder,
-);
-
-orderRouter.patch(
-  '/:id/pendingdelivery',
-  isAuthenticated,
-  isAdmin,
-  Orders.StatusController.patchPendingDelivery,
+  Orders.StatusController.patchOrder,
 );
