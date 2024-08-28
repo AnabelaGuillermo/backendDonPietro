@@ -136,7 +136,7 @@ Ruta principal: `/api/v1/users`
 | ------ | ------------------- | --------- | -------------- | ------------- | ---------------------------------- | ---- |
 | GET    | `/`                 | ✅        | ✅             | ❌            | Obtiene todos los de usuarios      | -    |
 | POST   | `/`                 | ❌        | ❌             | ✅            | Registra un usuario                | -    |
-| PUT    | `/:id/toggle-admin` | ✅        | ✅             | ❌            | Cambia isAdmin a True              | -    |
+| PUT    | `/:id/toggle-admin` | ✅        | ✅             | ❌            | Cambia isAdmin a !isAdmin              | -    |
 | DELETE | `/:id`              | ✅        | ✅             | ❌            | Elimina un usuario(borrado logico) | -    |
 
 ## Dependencias Utilizadas
