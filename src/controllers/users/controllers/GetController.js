@@ -14,8 +14,10 @@ export class GetController {
           fullname: user.fullname,
           email: user.email,
           isAdmin: user.isAdmin,
+          superAdmin: user.superAdmin,
         };
       });
+      console.log(filteredData);
       res.json({
         data: filteredData,
         message: 'Usuarios encontrados correctamente',
