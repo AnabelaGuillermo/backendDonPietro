@@ -91,7 +91,7 @@ Ruta principal: `/api/v1/auth`
 
 | Método | Endpoint | Protegido | Debe ser Admin | Descripcion                  | Body                                                                      |
 | ------ | -------- | --------- | -------------- | ---------------------------- | ------------------------------------------------------------------------- |
-| POST   | `/login` | ❌        | ❌             | Inicia sesión con un usuario | `{user: {id: string, fullname: string, email: string, isAdmin: boolean}}` |
+| POST   | `/login` | ❌        | ❌             | Inicia sesión con un usuario | `{user: {id: string, fullname: string, email: string, isAdmin: boolean, superAdmin: boolean}}` |
 
 Configuracion:
 Ruta principal: `/api/v1/config`
@@ -113,22 +113,17 @@ Ruta principal: `/api/v1/order`
 
 | Método | Endpoint               | Protegido | Debe ser Admin | Descripcion                                                                                  | Body                                                                                                                                                                 |
 | ------ | ---------------------- | --------- | -------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| GET    | `/waiting`             | ✅        | ✅             | Obtiene las ordenes de compra en estado "WaitingForPayment"                                  | `{historial: {_id: string, userName: string, products: array, comments: string, status: string, paymentMethod: "WaitingForPayment", total: number, createdAt: Date}` |
-| GET    | `/preparingorder`      | ✅        | ✅             | Obtiene las ordenes de compra en estado "PreparingOrder"                                     | `{historial: {_id: string, userName: string, products: array, comments: string, status: string, paymentMethod: "PreparingOrder", total: number, createdAt: Date}`    |
-| GET    | `/pendingdelivery`     | ✅        | ✅             | Obtiene las ordenes de compra en estado "PendingDelivery"                                    | `{historial: {_id: string, userName: string, products: array, comments: string, status: string, paymentMethod: "PendingDelivery", total: number, createdAt: Date}`   |
-| GET    | `/preparingordertv`    | ✅        | ✅             | Obtiene las ordenes de compra en estado "PreparingOrder" para mostrar en TVPanel             | `{historial: {_id: string, userID: string}`                                                                                                                          |
-| GET    | `/pendingdeliverytv`   | ✅        | ✅             | Obtiene las ordenes de compra en estado "PendingDelivery" para mostrar en TVPanel            | `{historial: {_id: string, userID: string}`                                                                                                                          |
+| GET    | `/:status`             | ✅        | ✅             | Obtiene las ordenes de compra en estado el "status" ingresado                                  | `{historial: {_id: string, userName: string, products: array, comments: string, status: string, paymentMethod: "statud", total: number, createdAt: Date}` |
+| GET    | `/tv/:status`    | ✅        | ✅             | Obtiene las ordenes de compra en estado "status" para mostrar en TVPanel             | `{historial: {_id: string, userID: string}`                                                                                                                          |
 | DELETE | `/:id`                 | ✅        | ✅             | Elimina una orden de compra por su id (borrado fisico)                                       | -                                                                                                                                                                    |
 | POST   | `/`                    | ✅        | ❌             | Crea una orden de compra                                                                     | -                                                                                                                                                                    |
-| PATCH  | `/:id/waiting`         | ✅        | ✅             | Cambia el estado de una orden de "WaitingForPayment" a "PreparingOrder"                      | -                                                                                                                                                                    |
-| PATCH  | `/:id/preparingorder`  | ✅        | ✅             | Cambia el estado de una orden de "PreparingOrder" a "PendingDelivery"                        | -                                                                                                                                                                    |
-| PATCH  | `/:id/pendingdelivery` | ✅        | ✅             | Cambia el estado de una orden de "PendingDelivery" a "Completed" y la mueve a orderHistorial | -                                                                                                                                                                    |
+| PATCH  | `/:id/:status:newStatus`         | ✅        | ✅             | Cambia el estado de una orden de "status" a "newStatus"                      | -                                                                                                                                                                    |
 
 Productos:
 Ruta principal: `/api/v1/products`
 
-| Método | Endpoint | Protegido | Debe ser Admin | Controla Nombre | Descripcion                         | Body |
-| ------ | -------- | --------- | -------------- | --------------- | ----------------------------------- | ---- |
+| Método | Endpoint | Protegido | Debe ser Admin | Nombre ya registrado | Descripcion                         | Body |
+| ------ | -------- | --------- | -------------- | -------------------- | ----------------------------------- | ---- |
 | GET    | `/`      | ✅        | ❌             | ❌              | Obtiene todos los productos         | -    |
 | POST   | `/`      | ✅        | ✅             | ✅              | Carga un producto                   | -    |
 | PUT    | `/:id`   | ✅        | ✅             | ✅              | Edita un producto                   | -    |
