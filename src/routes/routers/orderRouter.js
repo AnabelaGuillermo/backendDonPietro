@@ -21,7 +21,7 @@ orderRouter.get(
   '/:status',
   isAuthenticated,
   isAdmin,
-  Orders.GetController.getPreparingOrdersTV,
+  Orders.GetController.getOrdersTV,
 );
 
 orderRouter.delete(

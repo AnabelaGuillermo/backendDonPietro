@@ -60,48 +60,4 @@ export class GetController {
       internalError(res, e, 'Ocurrió un error al leer la lista de ordenes');
     }
   }
-
-  static async getPreparingOrdersTV(_, res) {
-    try {
-      const data = await OrderModel.find({
-        status: 'PreparingOrder',
-      });
-
-      const filteredData = data.map((order) => {
-        return {
-          id: order._doc._id,
-          userName: order._doc.userName,
-        };
-      });
-
-      res.json({
-        data: filteredData,
-        message: 'Ordenes encontradas correctamente',
-      });
-    } catch (e) {
-      internalError(res, e, 'Ocurrió un error al leer la lista de ordenes');
-    }
-  }
-
-  static async getPendingDOrdersTV(_, res) {
-    try {
-      const data = await OrderModel.find({
-        status: 'PendingDelivery',
-      });
-
-      const filteredData = data.map((order) => {
-        return {
-          id: order._doc._id,
-          userName: order._doc.userName,
-        };
-      });
-
-      res.json({
-        data: filteredData,
-        message: 'Ordenes encontradas correctamente',
-      });
-    } catch (e) {
-      internalError(res, e, 'Ocurrió un error al leer la lista de ordenes');
-    }
-  }
 }
