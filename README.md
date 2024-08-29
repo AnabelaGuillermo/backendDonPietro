@@ -113,7 +113,7 @@ Ruta principal: `/api/v1/order`
 
 | Método | Endpoint               | Protegido | Debe ser Admin | Descripcion                                                                                  | Body                                                                                                                                                                 |
 | ------ | ---------------------- | --------- | -------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| GET    | `/:status`             | ✅        | ✅             | Obtiene las ordenes de compra en estado el "status" ingresado                                  | `{historial: {_id: string, userName: string, products: array, comments: string, status: string, paymentMethod: "statud", total: number, createdAt: Date}` |
+| GET    | `/:status`             | ✅        | ✅             | Obtiene las ordenes de compra en estado "status"                                  | `{historial: {_id: string, userName: string, products: array, comments: string, status: string, paymentMethod: "statud", total: number, createdAt: Date}` |
 | GET    | `/tv/:status`    | ✅        | ✅             | Obtiene las ordenes de compra en estado "status" para mostrar en TVPanel             | `{historial: {_id: string, userID: string}`                                                                                                                          |
 | DELETE | `/:id`                 | ✅        | ✅             | Elimina una orden de compra por su id (borrado fisico)                                       | -                                                                                                                                                                    |
 | POST   | `/`                    | ✅        | ❌             | Crea una orden de compra                                                                     | -                                                                                                                                                                    |
@@ -132,7 +132,7 @@ Ruta principal: `/api/v1/products`
 Usuarios:
 Ruta principal: `/api/v1/users`
 
-| Método | Endpoint            | Protegido | Debe ser Admin | Ya registrado | Descripcion                        | Body |
+| Método | Endpoint            | Protegido | Debe ser Admin | Mail ya registrado | Descripcion                        | Body |
 | ------ | ------------------- | --------- | -------------- | ------------- | ---------------------------------- | ---- |
 | GET    | `/`                 | ✅        | ✅             | ❌            | Obtiene todos los de usuarios      | -    |
 | POST   | `/`                 | ❌        | ❌             | ✅            | Registra un usuario                | -    |
