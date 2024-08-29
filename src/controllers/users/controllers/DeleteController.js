@@ -15,6 +15,7 @@ export class DeleteController {
         {
           _id: id,
           isActive: true,
+          superAdmin: false,
         },
         {
           isActive: false,
